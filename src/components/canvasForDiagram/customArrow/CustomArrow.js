@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Arrow} from 'react-konva';
 
 export const CustomArrow = ({arrowPoints}) => {
-    const [points, setPoints] = useState([arrowPoints]);
     return(
     <Arrow
         tension={0.2}

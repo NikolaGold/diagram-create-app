@@ -21,8 +21,9 @@ const shapesReducer = (shapes = shape, action ) => {
         case CHANGE_COORDINATES:
             return produce(shapes, draftState => {draftState.map((shape) => {
                 if(shape.id === action.id){
-                  shape.x = action.x;
-                  shape.y = action.y
+                 const x =shape.x = action.x;
+                 const y = shape.y = action.y;
+                 return [x, y]
                 } else {
                     return shape
                 }

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Path, Text, Group} from 'react-konva';
-import {v4 as uuidv4} from 'uuid';
 
 import Portal from '../../portal/Portal';
 
