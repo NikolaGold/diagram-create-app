@@ -16,18 +16,17 @@ export const NewSquareComponent = ({createNewSquare}) => {
     };
     const handleClick = () => {
         setIdSquare(uuidv4());
-        if(idSquare) {
+        if (idSquare) {
             createNewSquare(newSquare)
         }
     };
 
-    return(
-        <div>
-            <Button variant="info" size="lg" onClick={() => handleClick()}>
-                New square
-            </Button>
-        </div>
-    )};
+    return (
+        <Button variant="info" size="lg" onClick={() => handleClick()}>
+            New square
+        </Button>
+    )
+};
 
 const mapDispatchToProps = (dispatch) => ({
     createNewSquare: (shape) => dispatch(createNewShape(shape)),

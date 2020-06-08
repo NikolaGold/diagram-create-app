@@ -16,17 +16,16 @@ export const NewCircleComponent = ({createNewCircle}) => {
     };
     const handleClick = () => {
         setIdCircle(uuidv4());
-        if(idCircle) {
+        if (idCircle) {
             createNewCircle(newCircle)
         }
     };
-    return(
-    <div>
+    return (
         <Button variant="info" size="lg" onClick={() => handleClick()}>
             New circle
         </Button>
-    </div>
-)};
+    )
+};
 
 const mapDispatchToProps = (dispatch) => ({
     createNewCircle: (shape) => dispatch(createNewShape(shape)),

@@ -16,17 +16,16 @@ export const NewTriangleComponent = ({createNewTriangle}) => {
     };
     const handleClick = () => {
         setIdTriangle(uuidv4());
-        if(idTriangle) {
+        if (idTriangle) {
             createNewTriangle(newTriangle)
         }
     };
-    return(
-        <div>
-            <Button variant="info" size="lg" onClick={() => handleClick()}>
-                New triangle
-            </Button>
-        </div>
-    )};
+    return (
+        <Button variant="info" size="lg" onClick={() => handleClick()}>
+            New triangle
+        </Button>
+    )
+};
 
 const mapDispatchToProps = (dispatch) => ({
     createNewTriangle: (shape) => dispatch(createNewShape(shape)),

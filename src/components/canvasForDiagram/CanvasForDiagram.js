@@ -13,12 +13,12 @@ const CanvasForDiagramComponent = ({shapes, changeTextForShape, changeCoordinate
 
     return (
         <div className="canvas-for-diagram">
-            <Stage width={955} height={window.innerHeight} style={{ border: '1px solid grey' }}>
+            <Stage width={920} height={window.innerHeight} style={{border: '1px solid grey'}}>
                 <Layer>
                     {shapes.map(
                         (shape) => {
                             if (shape.svg) {
-                             return  <CustomShape
+                                return <CustomShape
                                     key={shape.id}
                                     id={shape.id}
                                     shapeX={shape.x}
@@ -29,10 +29,10 @@ const CanvasForDiagramComponent = ({shapes, changeTextForShape, changeCoordinate
                                     changeCoordinates={changeCoordinates}
                                 />
                             } else {
-                              return <CustomArrow
-                                  key={shape.id}
-                                  arrowPoints={shape.points}
-                              />
+                                return <CustomArrow
+                                    key={shape.id}
+                                    arrowPoints={shape.points}
+                                />
                             }
                         }
                     )}

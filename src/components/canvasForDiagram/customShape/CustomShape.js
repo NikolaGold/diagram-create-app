@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Path, Text, Group} from 'react-konva';
+import {v4 as uuidv4} from 'uuid';
 
 import Portal from '../../portal/Portal';
 
@@ -24,32 +25,27 @@ export const CustomShape = ({svgData, textShape, shapeX, shapeY, id, changeTextF
         }
     };
 
-    const handleClick = (e) => {
-        setCoordinates({
-            x: e.target.x(),
-            y: e.target.y(),
-        });
-        changeCoordinates(id, e.target.x(), e.target.y())
-    };
-
-
     return (
         <>
-            <Group >
+            <Group>
                 <Path
-                    x={shapeX}
-                    y={shapeY}
+                    x={coordinates.x}
+                    y={coordinates.y}
                     data={svgData}
                     id={id}
-                    fill="blue"
+                    fill="#239A9E"
                     stroke="black"
                     draggable
-                    onDragEnd={e => handleClick(e)}
+                    onDragMove={(e) => setCoordinates({
+                        x: e.target.x(),
+                        y: e.target.y(),
+                    })}
+                    onDragEnd={(e) => changeCoordinates(id, e.target.x(), e.target.y())}
                 />
                 {!isEditMode &&
                 <Text
-                    x={shapeX}
-                    y={shapeY}
+                    x={coordinates.x}
+                    y={coordinates.y}
                     id={id}
                     text={textShape}
                     fontSize={15}
@@ -57,7 +53,8 @@ export const CustomShape = ({svgData, textShape, shapeX, shapeY, id, changeTextF
 
                 />
                 }
-                <Portal>
+            </Group>
+            <Portal>
                 <textarea
                     value={text}
                     style={{
@@ -69,8 +66,7 @@ export const CustomShape = ({svgData, textShape, shapeX, shapeY, id, changeTextF
                     onChange={(e) => setText(e.target.value)}
                     onKeyDown={handleTextareaKeyDown}
                 />
-                </Portal>
-            </Group>
+            </Portal>
         </>
     )
 };
